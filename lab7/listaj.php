@@ -62,7 +62,6 @@
 
 
                   $con=mysqli_connect("localhost","root","123","zdk");
-                        // provjera konekcije
                     if (mysqli_connect_errno())
                       {
                     echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -71,10 +70,10 @@
 
 					    mysqli_query($con,"SET NAMES 'utf8'");
 					    mysqli_query($con,"SET CHARACTER_SET 'utf8'");
-					/* povlače se podaci iz baze */
+				
 					 $json = array();
 					    $result = mysqli_query($con,"SELECT * FROM unos");
-                     /* ime odredišta koje je kliknuto se traži u bazi i ispisuje se određeni sadržaj */
+                    
 
 					  while($row = mysqli_fetch_array($result))
 					   { 
@@ -87,9 +86,7 @@
 						}
 
 						$jsonstring = json_encode($json);
-						//echo $jsonstring;
-
-						//var_dump ($json[0]);
+					
 
 					  $arrson = json_decode($jsonstring,true);
                        echo '<div id="json">			
@@ -98,12 +95,11 @@
 					  mysqli_close($con);
 
                   ?>
-			<button id="prije" type="button" onclick="myFunction2()">Prethodni</button>
-		    <button id="dalje" type="button" onclick="myFunction()">Slijedeći</button>
+			<button id="prethodni" type="button" onclick="myFunction2()">Prethodni</button>
+		    <button id="slijedeci" type="button" onclick="myFunction()">Slijedeći</button>
 		 
 		  
 			   
-		
 	  
      </div>
 
